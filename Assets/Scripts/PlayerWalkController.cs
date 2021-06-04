@@ -4,57 +4,52 @@ using UnityEngine;
 
 public class PlayerWalkController : MonoBehaviour
 {
-    public float HorizontalInput { get; set; }
-    public float VerticalInput { get; set; }
+    public Vector2 velocity;
+    public Vector2 lookDirection;
 
     [SerializeField] int walkSpeed = 0;
-    [SerializeField] Sprite up = null;
-    [SerializeField] Sprite down = null;
-    [SerializeField] Sprite left = null;
-    [SerializeField] Sprite right = null;
+
+    private Rigidbody2D rb;
+    private Vector2 currentInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // 输入检测
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+
+        Vector2 movement = new Vector2(horizontalInput, verticalInput);
+        velocity = movement;
+
+        if (!(Mathf.Approximately(movement.x, 0.0f) && (Mathf.Approximately(movement.y, 0.0f))))    // 当主角移动时
+        {
+            lookDirection.Set(movement.x, movement.y);
+            lookDirection.Normalize();
+        }
+
+        currentInput = movement;
+
+    }
+
+    private void FixedUpdate()
+    {
         // TO DO: 碰撞闪烁
         // TO DO: 地图素材层级
-        WalkX();
-        WalkY();
+        Walk();
     }
 
     // WASD移动
-    void WalkX()
+    void Walk()
     {
-        HorizontalInput = Input.GetAxisRaw("Horizontal");
-        if (HorizontalInput < 0)
-        {
-            GetComponent<SpriteRenderer>().sprite = left;
-            transform.position -= new Vector3(walkSpeed * Time.deltaTime, 0, 0); // 左转
-        }
-        else if (HorizontalInput > 0)
-        {
-            GetComponent<SpriteRenderer>().sprite = right;
-            transform.position += new Vector3(walkSpeed * Time.deltaTime, 0, 0); // 右转
-        }
-    }
-    void WalkY()
-    {
-        VerticalInput = Input.GetAxisRaw("Vertical");
-        if (VerticalInput < 0)
-        {
-            GetComponent<SpriteRenderer>().sprite = down;
-            transform.position -= new Vector3(0, walkSpeed * Time.deltaTime, 0); // 向下走
-        }
-        else if (VerticalInput > 0)
-        {
-            GetComponent<SpriteRenderer>().sprite = up;
-            transform.position += new Vector3(0, walkSpeed * Time.deltaTime, 0); // 向上走
-        }
+        Vector2 position = rb.position;
+        position += currentInput * walkSpeed * Time.deltaTime;
+        rb.MovePosition(position);
     }
 }

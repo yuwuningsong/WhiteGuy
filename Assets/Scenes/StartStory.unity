@@ -820,11 +820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec856c97046b79488a74ef2fc4728f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 10
-  up: {fileID: 7043811978007918041, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
-  down: {fileID: -6598946016331564889, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
-  left: {fileID: 3729461876300729580, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
-  right: {fileID: 2249745419088220813, guid: 23748c298f885bf4c89671f6d30f562b, type: 3}
+  velocity: {x: 0, y: 0}
+  lookDirection: {x: 0, y: 0}
+  walkSpeed: 8
 --- !u!61 &805892545
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -838,7 +836,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.16385376}
+  m_Offset: {x: 0, y: -0.20518145}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -849,7 +847,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6762216, y: 1.0025413}
+  m_Size: {x: 0.6762216, y: 0.79590243}
   m_EdgeRadius: 0
 --- !u!95 &805892546
 Animator:
@@ -1077,9 +1075,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770998743
-  m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingLayerID: 1616974207
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16

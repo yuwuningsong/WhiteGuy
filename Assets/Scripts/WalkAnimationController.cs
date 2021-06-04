@@ -21,7 +21,8 @@ public class WalkAnimationController : MonoBehaviour
 
     void SetValues()
     {
-        anim.SetFloat("velocityX", walk.HorizontalInput);
-        anim.SetFloat("velocityY", walk.VerticalInput);
+        anim.SetFloat("directionX", walk.lookDirection.x);
+        anim.SetFloat("directionY", walk.lookDirection.y);
+        anim.SetFloat("speed", walk.velocity.magnitude);
     }
 }

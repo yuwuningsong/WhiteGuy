@@ -6,6 +6,7 @@ public class PlayerWalkController : MonoBehaviour
 {
     public Vector2 velocity;
     public Vector2 lookDirection;
+    public bool canMove = true;
 
     [SerializeField] int walkSpeed = 0;
 
@@ -21,6 +22,19 @@ public class PlayerWalkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (canMove) GetInput();
+    }
+
+    private void FixedUpdate()
+    {
+        // TO DO: 碰撞闪烁
+        // TO DO: 地图素材层级
+        Walk();
+    }
+
+    // 移动输入检测
+    void GetInput()
+    {
         // 输入检测
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -35,14 +49,6 @@ public class PlayerWalkController : MonoBehaviour
         }
 
         currentInput = movement;
-
-    }
-
-    private void FixedUpdate()
-    {
-        // TO DO: 碰撞闪烁
-        // TO DO: 地图素材层级
-        Walk();
     }
 
     // WASD移动

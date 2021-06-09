@@ -70,6 +70,8 @@
     <Compile Include="Assets\Resource\Simple 2D Platformer BE2\ReadMe\Scripts\ReadmeBE2.cs" />
     <Compile Include="Assets\Resource\TopDown 2D RPG BE3\ReadMe\Scripts\ReadmeBE3.cs" />
     <Compile Include="Assets\Resource\Vertical 2D Shooting BE4\ReadMe\Scripts\ReadmeBE4.cs" />
+    <Compile Include="Assets\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\NPCTalkController.cs" />
     <Compile Include="Assets\Scripts\PlayerWalkController.cs" />
     <Compile Include="Assets\Scripts\WalkAnimationController.cs" />
     <Reference Include="UnityEngine">

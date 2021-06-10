@@ -59,3 +59,9 @@ TagManager:
   - name: Fly
     uniqueID: 2218657175
     locked: 0
+  - name: JumpBackground
+    uniqueID: 3963582039
+    locked: 0
+  - name: FrontObject
+    uniqueID: 1519927247
+    locked: 0

@@ -11,6 +11,36 @@ TextureImporter:
   - first:
       213: -7810250789829366425
     second: Bottom
+  - first:
+      213: 1817286201149536964
+    second: Backgrounds_0
+  - first:
+      213: 7848119709843813660
+    second: Backgrounds_1
+  - first:
+      213: -2231792432857123884
+    second: Backgrounds_2
+  - first:
+      213: 5652514795977546035
+    second: Backgrounds_3
+  - first:
+      213: -6885080461081682054
+    second: Backgrounds_4
+  - first:
+      213: -8461514266414155272
+    second: Backgrounds_0
+  - first:
+      213: 656988019031298925
+    second: Backgrounds_1
+  - first:
+      213: -7810250789829366425
+    second: Backgrounds_2
+  - first:
+      213: -65975598366954213
+    second: Backgrounds_3
+  - first:
+      213: -4291092702750821296
+    second: Backgrounds_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -54,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,15 +150,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Top
+      name: Backgrounds_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 143.66667
+        width: 20
         height: 288
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,15 +171,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Middle
+      name: Backgrounds_1
       rect:
         serializedVersion: 2
-        x: 145
+        x: 124
         y: 0
-        width: 144
+        width: 20
         height: 288
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,15 +192,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bottom
+      name: Backgrounds_2
       rect:
         serializedVersion: 2
-        x: 290
+        x: 145
         y: 0
-        width: 144
+        width: 30
         height: 288
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,6 +208,48 @@ TextureImporter:
       bones: []
       spriteID: 76da181894a6c9390800000000000000
       internalID: -7810250789829366425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Backgrounds_3
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 30
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d6e77fa8b951ff0800000000000000
+      internalID: -65975598366954213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Backgrounds_4
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 144
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054344a0ce9f274c0800000000000000
+      internalID: -4291092702750821296
       vertices: []
       indices: 
       edges: []

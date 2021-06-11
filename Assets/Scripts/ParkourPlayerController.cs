@@ -51,7 +51,7 @@ public class ParkourPlayerController : MonoBehaviour
     void SwitchAnim()
     {
         anim.SetBool("running", false);
-
+        // TO DO:减少嵌套
         if (anim.GetBool("jumping"))
         {
             if (rb.velocity.y < 0)      //降落

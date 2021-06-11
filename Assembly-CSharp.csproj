@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\ParkourBackgroundController.cs" />
     <Compile Include="Assets\Scripts\ParkourEnvironmentController.cs" />
     <Compile Include="Assets\Scripts\ParkourPlayerController.cs" />
+    <Compile Include="Assets\Scripts\Pet.cs" />
     <Compile Include="Assets\Scripts\PlayerWalkController.cs" />
     <Compile Include="Assets\Scripts\StartScene\PetPanelController.cs" />
     <Compile Include="Assets\Scripts\StartScene\StartSceneUIEvent.cs" />

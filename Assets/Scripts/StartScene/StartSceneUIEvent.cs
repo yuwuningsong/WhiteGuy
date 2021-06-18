@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StartSceneUIEvent : MonoBehaviour
 {
+    [SerializeField] PlayerWalkController player = null;
     private bool startAnim = false;
     private Animator anim;
 
@@ -32,5 +33,6 @@ public class StartSceneUIEvent : MonoBehaviour
     void CloseStartCurtain()
     {
         gameObject.SetActive(false);
+        player.canMove = true;
     }
 }

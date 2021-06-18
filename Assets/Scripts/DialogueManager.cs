@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public bool isTalking = false;
+    public bool isOver = false;
+    public static DialogueManager dialogueManager;
 
     [Header("Character")]
     [SerializeField] GameObject NPC = null;
@@ -24,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogueManager = this;
         GetTextFromFile(textFile);
         index = 0;
     }
@@ -66,7 +69,7 @@ public class DialogueManager : MonoBehaviour
     // 按下Z键弹出对话框
     void OpenTextBox()
     {
-        if (!isTalking && FaceNPC() && Input.GetKeyDown(KeyCode.Z))
+        if (!isOver && !isTalking && FaceNPC() && Input.GetKeyDown(KeyCode.Z))
         {
             textBox.SetActive(true);
             isTalking = true;
@@ -86,7 +89,10 @@ public class DialogueManager : MonoBehaviour
     // 按下Z跳到下一句对话
     void ToNextWord()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && IsOver()) CloseTextBox();
+        if (Input.GetKeyDown(KeyCode.Z) && IsOver())
+        {
+            CloseTextBox();
+        }
         if (isTalking && Input.GetKeyDown(KeyCode.Z))
         {
             text.text = textLines[index];
@@ -108,5 +114,6 @@ public class DialogueManager : MonoBehaviour
         isTalking = false;
         player.canMove = true;
         index = 0;
+        isOver = true;
     }
 }

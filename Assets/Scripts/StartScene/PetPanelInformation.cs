@@ -30,6 +30,11 @@ public class PetPanelInformation : MonoBehaviour
         {
             hasChanged = true;
         }
+        else
+        {
+            hasChanged = false;
+        }
+
         this.attackNum.text = attackNum.ToString();
         this.defenceNum.text = defenceNum.ToString();
         this.attackType.text = attackType;

@@ -87,7 +87,8 @@
     <Compile Include="Assets\Scripts\StartScene\PetPanelInformation.cs" />
     <Compile Include="Assets\Scripts\StartScene\StartSceneUIEvent.cs" />
     <Compile Include="Assets\Scripts\WalkAnimationController.cs" />
-    <None Include="Assets\TextAssets\00-Start.txt" />
+    <None Include="Assets\TextAssets\00-StartBef.txt" />
+    <None Include="Assets\TextAssets\00-StartAft.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Software/Unity/2019.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

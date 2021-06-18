@@ -18,17 +18,18 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Text text = null;
 
     [Header("TextFile")]
-    [SerializeField] TextAsset textFile = null;
+    [SerializeField] TextAsset textFileBef = null;
+    [SerializeField] TextAsset textFileAft = null;
 
     private int index = 0;
     private List<string> textLines = new List<string>();
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         dialogueManager = this;
-        GetTextFromFile(textFile);
         index = 0;
+        InitializeText();
     }
 
     // Update is called once per frame
@@ -39,6 +40,19 @@ public class DialogueManager : MonoBehaviour
         SkipDialogue();
     }
 
+    // 初始化文本
+    public void InitializeText()
+    {
+        if (GameManagerStaSce.gameManager == null || !GameManagerStaSce.gameManager.hasChoose)
+        {
+            GetTextFromFile(textFileBef); // 选灵宠前
+        }
+        else
+        {
+            GetTextFromFile(textFileAft); // 选灵宠后
+        }
+    }
+
     // 导入文本文件
     void GetTextFromFile(TextAsset textFile)
     {
@@ -46,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         var lines = textFile.text.Split('\n');
         foreach(var line in lines)
         {
-            Debug.Log($"Line:{line.Replace("：", "：\n")}");
+            Debug.Log(line.Replace("：", "：\n"));
             textLines.Add(line.Replace("：", "：\n"));
         }
     }

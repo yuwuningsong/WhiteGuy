@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PetPanelController : MonoBehaviour
 {
+    public static Pet pet;
     [SerializeField] GameObject petPanel = null;
     private bool isOpen = false;
-    private Pet pet;
     private PetPanelInformation info;
 
     // Start is called before the first frame update
     void Start()
     {
-        pet = GetComponent<Pet>();
         info = petPanel.GetComponent<PetPanelInformation>();
     }
 
@@ -24,8 +23,8 @@ public class PetPanelController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        UpdatePetInformation();
         SwitchPetPanel();
+        UpdatePetInformation();
     }
 
     // 开启/关闭面板
@@ -39,11 +38,13 @@ public class PetPanelController : MonoBehaviour
         }
         petPanel.SetActive(true);
         isOpen = true;
+        pet = GetComponent<Pet>();
     }
 
     // 更新宠物面板信息
     void UpdatePetInformation()
     {
         info.UpdatePetInformation(pet.attackNum, pet.defenceNum, pet.attackType, pet.sprite);
+        PetManager.petManager.SavePetInfo(pet);
     }
 }

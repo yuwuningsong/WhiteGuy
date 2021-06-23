@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Player\HorizontalJump\JumpController.cs" />
     <Compile Include="Assets\Scripts\Player\HorizontalJump\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\Player\HorizontalJump\RunController.cs" />
+    <Compile Include="Assets\Scripts\Player\Pokemon\ContactMonsterSystem.cs" />
     <Compile Include="Assets\Scripts\StartScene\GameManagerStaSce.cs" />
     <Compile Include="Assets\Scripts\StartScene\PetPanelController.cs" />
     <Compile Include="Assets\Scripts\StartScene\PetPanelInformation.cs" />

@@ -22,13 +22,19 @@ public class PlayerWalkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove) GetInput();
+        if (canMove)
+        {
+            GetInput();
+        }
+        else
+        {
+            currentInput = Vector2.zero;
+            velocity = Vector2.zero;
+        }
     }
 
     private void FixedUpdate()
     {
-        // TO DO: 碰撞闪烁
-        // TO DO: 地图素材层级
         Walk();
     }
 

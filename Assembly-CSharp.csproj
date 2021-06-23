@@ -630,6 +630,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/bugs/DEMO/WhiteGuy/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>D:/bugs/DEMO/WhiteGuy/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>D:/bugs/DEMO/WhiteGuy/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
@@ -692,6 +695,9 @@
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
       <HintPath>D:/bugs/DEMO/WhiteGuy/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>D:/bugs/DEMO/WhiteGuy/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>D:/bugs/DEMO/WhiteGuy/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>

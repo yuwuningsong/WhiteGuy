@@ -33,7 +33,8 @@ public class RunController : MonoBehaviour
 
         if (horizontalInput != 0)                                                                   // Change Direction
         {
-            GetComponent<Transform>().localScale = new Vector3(horizontalInput, 1, 1);
+            Vector3 scale = GetComponent<Transform>().localScale;
+            GetComponent<Transform>().localScale = new Vector3(horizontalInput * Mathf.Abs(scale.x), scale.y, 1);
         }
     }
 }

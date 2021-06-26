@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Spike
   - Ground
+  - Weapon
+  - Monster
   layers:
   - Default
   - TransparentFX

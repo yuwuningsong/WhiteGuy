@@ -36,6 +36,7 @@ public class ContactMonsterSystem : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(contactCD);
             float rate = Random.value;
             if (rate <= GetMonsterRate())
             {
@@ -43,7 +44,6 @@ public class ContactMonsterSystem : MonoBehaviour
                 surpriseBallon.SetActive(true);
                 GetComponent<PlayerWalkController>().canMove = false;
             }
-            yield return new WaitForSeconds(contactCD);
         }
     }
 

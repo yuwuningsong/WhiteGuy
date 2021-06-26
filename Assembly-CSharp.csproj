@@ -72,6 +72,8 @@
     <Compile Include="Assets\Resource\Vertical 2D Shooting BE4\ReadMe\Scripts\ReadmeBE4.cs" />
     <Compile Include="Assets\Scripts\ArenaPlayerController.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Monster\MonsterAttackController.cs" />
+    <Compile Include="Assets\Scripts\Monster\MonsterLiveController.cs" />
     <Compile Include="Assets\Scripts\NPCTalkController.cs" />
     <Compile Include="Assets\Scripts\ParkourBackgroundController.cs" />
     <Compile Include="Assets\Scripts\ParkourEnvironmentController.cs" />
@@ -85,12 +87,17 @@
     <Compile Include="Assets\Scripts\Player\HorizontalJump\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\Player\HorizontalJump\RunController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerFightController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerHurtController.cs" />
     <Compile Include="Assets\Scripts\Player\Pokemon\ContactMonsterSystem.cs" />
+    <Compile Include="Assets\Scripts\Pokemon\AnimEventManager.cs" />
+    <Compile Include="Assets\Scripts\Pokemon\GameManagerPokemon.cs" />
     <Compile Include="Assets\Scripts\Pokemon\SwordController.cs" />
+    <Compile Include="Assets\Scripts\Pokemon\UIManager.cs" />
     <Compile Include="Assets\Scripts\StartScene\GameManagerStaSce.cs" />
     <Compile Include="Assets\Scripts\StartScene\PetPanelController.cs" />
     <Compile Include="Assets\Scripts\StartScene\PetPanelInformation.cs" />
     <Compile Include="Assets\Scripts\StartScene\StartSceneUIEvent.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WeaponAttackController.cs" />
     <None Include="Assets\TextAssets\00-StartBef.txt" />
     <None Include="Assets\TextAssets\00-StartAft.txt" />
     <Reference Include="UnityEngine">

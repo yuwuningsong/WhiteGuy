@@ -67,9 +67,6 @@
      <Compile Include="Assets\Scripts\Monster\MonsterAttackController.cs" />
      <Compile Include="Assets\Scripts\Monster\MonsterLiveController.cs" />
      <Compile Include="Assets\Scripts\NPCTalkController.cs" />
-     <Compile Include="Assets\Scripts\ParkourBackgroundController.cs" />
-     <Compile Include="Assets\Scripts\ParkourEnvironmentController.cs" />
-     <Compile Include="Assets\Scripts\ParkourPlayerController.cs" />
      <Compile Include="Assets\Scripts\Pet\Pet.cs" />
      <Compile Include="Assets\Scripts\Pet\PetManager.cs" />
      <Compile Include="Assets\Scripts\Player\2.5DWalk\PlayerWalkController.cs" />
@@ -78,6 +75,9 @@
      <Compile Include="Assets\Scripts\Player\HorizontalJump\JumpController.cs" />
      <Compile Include="Assets\Scripts\Player\HorizontalJump\PlayerAnimator.cs" />
      <Compile Include="Assets\Scripts\Player\HorizontalJump\RunController.cs" />
+     <Compile Include="Assets\Scripts\Player\Parkour\ParkourBackgroundController.cs" />
+     <Compile Include="Assets\Scripts\Player\Parkour\ParkourEnvironmentController.cs" />
+     <Compile Include="Assets\Scripts\Player\Parkour\ParkourPlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerFightController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHurtController.cs" />
      <Compile Include="Assets\Scripts\Player\Pokemon\ContactMonsterSystem.cs" />

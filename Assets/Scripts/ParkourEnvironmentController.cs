@@ -18,10 +18,10 @@ public class ParkourEnvironmentController : MonoBehaviour
             //按照速度向左侧移动
             pos.x -= speed * Time.deltaTime;
             //判断是否出了屏幕
-            if (pos.x < -24.26404f)
+            if (pos.x < -81.7f)
             {
                 //把图片移动到右边
-                pos.x += 24.26404f * 2;
+                pos.x += 81.7f * 2;
             }
             //位置赋给子物体
             tran.position = pos;

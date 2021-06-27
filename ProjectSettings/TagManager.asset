@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Weapon
   - Monster
+  - AirWall
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - warBackground
   - ParkourGround
   - JumpMapGround
-  - Ceiling
-  - 
+  - AirWall
+  - Bullet
   - 
   - 
   - 

@@ -266,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 222541857}
   - component: {fileID: 222541858}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ MonoBehaviour:
   checkRadius: 0.32
   groundLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 256
 --- !u!114 &257240189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1616974207
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664,
     type: 3}
@@ -865,7 +865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 296255809}
   - component: {fileID: 296255810}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1100,7 @@ GameObject:
   - component: {fileID: 566214882}
   m_Layer: 0
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: AirWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1169,7 +1169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593410228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.029, y: -0.376, z: 0}
+  m_LocalPosition: {x: -0.029, y: -0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 257240184}
@@ -1289,6 +1289,7 @@ Transform:
   - {fileID: 1434713469}
   - {fileID: 1766846416}
   - {fileID: 854081058}
+  - {fileID: 997984606}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1361,7 +1362,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1596433287
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
@@ -2750,7 +2751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 964501956}
   - component: {fileID: 964501957}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,6 +2798,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 25.365402, y: 0.9406522}
   m_EdgeRadius: 0
+--- !u!1 &997984605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997984606}
+  m_Layer: 0
+  m_Name: Stones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997984606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997984605}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0183368, y: 6.821637, z: -57.1529}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 763250150}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1028675171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,7 +3008,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1616974207
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0d9c854218ec9d5429f50d643c78a4c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3111,7 +3142,7 @@ GameObject:
   - component: {fileID: 1069515350}
   - component: {fileID: 1069515349}
   - component: {fileID: 1069515348}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4381,7 +4412,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1616974207
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 983eaaf627552e84198974e398e50b62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7958,7 +7989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643276116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0046003, y: 1.93086, z: -10}
+  m_LocalPosition: {x: 2.0047987, y: 1.93086, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 427063305}
@@ -8107,6 +8138,7 @@ GameObject:
   - component: {fileID: 1695495230}
   - component: {fileID: 1695495233}
   - component: {fileID: 1695495234}
+  - component: {fileID: 1695495235}
   m_Layer: 0
   m_Name: Monster 1
   m_TagString: Monster
@@ -8202,7 +8234,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1616974207
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 764f930ba03e6324d805335eb66b8c98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8242,6 +8274,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 5
+--- !u!114 &1695495235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695495228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b5f3c716c941e47bca0487d716ffa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillOne: {fileID: 997984606}
+  stone: {fileID: 1017888938273221855, guid: 484cc76d83f3391429246f17a2b6a128, type: 3}
+  fallingCD: 0.3
+  stoneNum: 30
 --- !u!1 &1735680431
 GameObject:
   m_ObjectHideFlags: 0
@@ -22176,7 +22224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1766846416}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22279,7 +22327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839516107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5381238, y: 14.997892, z: -10}
+  m_LocalPosition: {x: 1.5143716, y: 1.0113702, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25674,7 +25722,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1616974207
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -6598946016331564889, guid: 23748c298f885bf4c89671f6d30f562b,
     type: 3}

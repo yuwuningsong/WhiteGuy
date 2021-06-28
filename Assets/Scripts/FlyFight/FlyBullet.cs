@@ -17,9 +17,10 @@ public class FlyBullet : MonoBehaviour
         transform.Translate(Vector3.up*speed*Time .deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+       Destroy(gameObject);
+
     }
 
 }

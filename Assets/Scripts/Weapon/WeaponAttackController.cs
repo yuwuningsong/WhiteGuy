@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponAttackController : MonoBehaviour
 {
     public int attack = 0; // 攻击力
+    public int defense = 0;
 
     // Start is called before the first frame update
     void Start()

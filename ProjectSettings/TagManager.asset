@@ -22,7 +22,7 @@ TagManager:
   - 
   - 
   - Tilemap
-  - warBackground
+  - Enemy
   - ParkourGround
   - JumpMapGround
   - AirWall

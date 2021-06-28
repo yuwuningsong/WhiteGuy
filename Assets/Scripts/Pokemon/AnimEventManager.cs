@@ -16,8 +16,15 @@ public class AnimEventManager : MonoBehaviour
         
     }
 
+    // 打开战斗界面
     void OpenFightScene()
     {
         GameManagerPokemon.gameManager.OpenFightScene();
+    }
+
+    // 销毁物体
+    void DestroyObject()
+    {
+        Destroy(gameObject);
     }
 }

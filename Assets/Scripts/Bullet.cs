@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] int attack = 0;
+    [SerializeField] GameObject boom = null;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +24,23 @@ public class Bullet : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             collision.collider.GetComponent<PlayerHurtController>().health -= attack;
-            gameObject.SetActive(false);
+            Instantiate(boom, transform.position, new Quaternion());
+            Destroy(gameObject);
+        }
+        if (collision.collider.CompareTag("Weapon"))
+        {
+            Instantiate(boom, transform.position, new Quaternion());
+            Destroy(gameObject);
         }
         if (collision.collider.CompareTag("AirWall"))
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
+    }
+
+    // 销毁子弹
+    void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }

@@ -74,8 +74,10 @@
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Coin\Parkour\CoinControl.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\FlyFight\BulletController.cs" />
+    <Compile Include="Assets\Scripts\FlyFight\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\FlyFight\EnemyMoveController.cs" />
     <Compile Include="Assets\Scripts\FlyFight\FlyAttackController.cs" />
-    <Compile Include="Assets\Scripts\FlyFight\FlyBullet.cs" />
     <Compile Include="Assets\Scripts\FollowManager.cs" />
     <Compile Include="Assets\Scripts\Monster\MonsterAttackController.cs" />
     <Compile Include="Assets\Scripts\Monster\MonsterLiveController.cs" />

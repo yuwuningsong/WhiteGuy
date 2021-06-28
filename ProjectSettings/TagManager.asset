@@ -9,6 +9,9 @@ TagManager:
   - Weapon
   - Monster
   - AirWall
+  - mybullet
+  - enemyBullet
+  - enemyFly
   layers:
   - Default
   - TransparentFX

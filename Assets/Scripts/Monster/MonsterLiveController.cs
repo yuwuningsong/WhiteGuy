@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class MonsterLiveController : MonoBehaviour
 {
+    public int health = 0;
+    public bool isDead = false;
+
     [SerializeField] int totalHealth = 0;
     [SerializeField] int attack = 0; // 攻击力
-    public int health = 0;
+    [SerializeField] List<GameObject> booms = new List<GameObject>();
 
-    private bool isDead = false;
     private bool isHurt = false;
+    private int index = 0;
+    private bool flag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +59,25 @@ public class MonsterLiveController : MonoBehaviour
 
     void Dead()
     {
-        if (isDead)
+        if (isDead && !flag)
         {
             health = 0;
+            StartCoroutine("DeadEffect");
             Debug.Log("Monster is DEAD!");
+            flag = true;
         }
+    }
+
+    IEnumerator DeadEffect()
+    {
+        while (index < booms.Count)
+        {
+            booms[index].SetActive(true);
+            index++;
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(0.4f);
+        GameManagerPokemon.gameManager.isWin = true;
+        gameObject.SetActive(false);
     }
 }

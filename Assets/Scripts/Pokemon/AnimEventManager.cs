@@ -27,4 +27,10 @@ public class AnimEventManager : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    // 关闭物体
+    void Unseen()
+    {
+        gameObject.SetActive(false);
+    }
 }

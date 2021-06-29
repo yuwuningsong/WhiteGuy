@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ArenaEnemyAttackCloseController : MonoBehaviour
 {
+    [Header("Weapon")]
     public float attack = 0; //攻击力
     public float attackDistance = 0; //攻击距离
-    public float attackFrequence = 0; //攻击频率
 
+    [Header("Frequence")]
     [SerializeField] float attackTimeCounter = 0f;
     [SerializeField] float attackTimeLimit = 0f;
 
@@ -30,7 +31,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()

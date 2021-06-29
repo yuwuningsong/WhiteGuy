@@ -20,7 +20,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Update in a certain time interval

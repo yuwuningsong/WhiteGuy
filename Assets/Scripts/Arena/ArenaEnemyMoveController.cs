@@ -9,6 +9,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
 
     [Header("Player Follow")]
     [SerializeField] Transform playerFollow = null;
+    [SerializeField] float offset = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,16 +32,20 @@ public class ArenaEnemyMoveController : MonoBehaviour
     void Run()
     {
         float x = playerFollow.position.x - rb.transform.position.x;
-        float horizontalInput = 0;
-        if (x > 0) horizontalInput = 1;
-        if (x < 0) horizontalInput = -1;
+        float horizontalMove = 0;
+        if (x > offset) horizontalMove = 1;
+        if (x < -offset) horizontalMove = -1;
 
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);                          // Move
+        rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);   // Move
 
-        if (horizontalInput != 0)                                                                   // Change Direction
+        float faceDirection = 0;
+        if (x > 0) faceDirection = 1;
+        if (x < 0) faceDirection = -1;
+
+        if (faceDirection != 0)                                                                              // Change Direction
         {
             Vector3 scale = GetComponent<Transform>().localScale;
-            GetComponent<Transform>().localScale = new Vector3(horizontalInput * Mathf.Abs(scale.x), scale.y, 1);
+            GetComponent<Transform>().localScale = new Vector3(faceDirection * Mathf.Abs(scale.x), scale.y, 1);
         }
     }
 }

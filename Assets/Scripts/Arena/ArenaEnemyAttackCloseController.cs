@@ -19,10 +19,12 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     [Header("Player Follow")]
     [SerializeField] Rigidbody2D playerFollow = null;
 
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -35,12 +37,12 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     {
         FrequenceCheck();
         DistanceCheck();
-        Attack();
+        //Attack();
     }
 
     void Attack()
     {
-        float defense = playerFollow.GetComponentInChildren<WeaponAttackController>().defense;
+        int defense = playerFollow.gameObject.GetComponentInChildren<WeaponAttackController>().defense;
         if (inDistance && canAttack)
         {
             playerFollow.GetComponent<ArenaPlayerLiveController>().health -= attack * (10 / defense);

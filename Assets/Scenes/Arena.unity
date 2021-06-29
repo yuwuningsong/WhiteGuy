@@ -1832,6 +1832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   playerFollow: {fileID: 185269718}
+  offset: 1.5
 --- !u!114 &1615474177
 MonoBehaviour:
   m_ObjectHideFlags: 0

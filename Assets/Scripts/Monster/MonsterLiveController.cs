@@ -5,9 +5,11 @@ using UnityEngine;
 public class MonsterLiveController : MonoBehaviour
 {
     [SerializeField] int totalHealth = 0;
+    [SerializeField] int attack = 0; // 攻击力
     public int health = 0;
 
     private bool isDead = false;
+    private bool isHurt = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class MonsterLiveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (totalHealth < health) totalHealth = health;
         if (health <= 0) isDead = true;
         Dead();
     }
@@ -27,15 +30,27 @@ public class MonsterLiveController : MonoBehaviour
         if (collision.CompareTag("Weapon"))
         {
             int attack = collision.gameObject.GetComponent<WeaponAttackController>().attack;
-            health -= attack;
-            collision.gameObject.GetComponentInParent<PlayerHurtController>().health += attack;
+            Hurt(attack);
+            collision.gameObject.GetComponentInParent<PlayerHurtController>().Recover(attack);
         }
         if (collision.CompareTag("Player"))
         {
-            int attack = GetComponent<MonsterAttackController>().attack;
-            collision.gameObject.GetComponentInParent<PlayerHurtController>().health -= attack;
-            health += attack;
+            collision.gameObject.GetComponentInParent<PlayerHurtController>().Hurt(attack);
+            Recover(attack);
         }
+    }
+
+    // 受伤
+    public void Hurt(int attack)
+    {
+        health -= attack;
+        isHurt = true;
+    }
+
+    // 恢复
+    public void Recover(int num)
+    {
+        health += num;
     }
 
     void Dead()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public MonsterLiveController monster; 
     [SerializeField] int attack = 0;
     [SerializeField] GameObject boom = null;
 
@@ -23,7 +24,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            collision.collider.GetComponent<PlayerHurtController>().health -= attack;
+            collision.collider.GetComponent<PlayerHurtController>().Hurt(attack);
+            monster.Recover(attack);
             Instantiate(boom, transform.position, new Quaternion());
             Destroy(gameObject);
         }

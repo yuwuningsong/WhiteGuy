@@ -44,7 +44,8 @@ public class MonsterSkillController : MonoBehaviour
         while (index < stoneNum)
         {
             Vector3 position = new Vector3(UnityEngine.Random.Range(-10, 7), 7.3f, 0);
-            Instantiate(stone, position, new Quaternion(), skillOne);
+            GameObject newStone = Instantiate(stone, position, new Quaternion(), skillOne);
+            newStone.GetComponent<Bullet>().monster = GetComponent<MonsterLiveController>();
             index++;
             yield return new WaitForSeconds(fallingCD);
         }

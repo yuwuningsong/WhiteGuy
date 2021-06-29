@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerHurtController : MonoBehaviour
 {
     public int health = 0;
+    public bool isHurt = false;
     [SerializeField] int totalHealth = 0;
-
-    private bool isDead = false;
+    [SerializeField] bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +23,21 @@ public class PlayerHurtController : MonoBehaviour
         Dead();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    // 受伤
+    public void Hurt(int attack)
     {
-        /*if (collision.CompareTag("Monster"))
-        {
-            int attack = collision.GetComponent<MonsterAttackController>().attack;
-            health -= attack;
-            collision.GetComponentInParent<MonsterLiveController>().health += attack;
-        }*/
+        health -= attack;
+        isHurt = true;
+        GetComponent<Animator>().SetTrigger("isHurt");
     }
 
+    // 恢复
+    public void Recover(int num)
+    {
+        health += num;
+    }
+
+    // 死亡
     void Dead()
     {
         if (isDead)

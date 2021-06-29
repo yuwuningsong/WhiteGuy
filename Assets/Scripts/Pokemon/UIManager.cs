@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     // 血条数据同步
     void HealthSliderChange()
     {
-        float num = ((float)player.health) / monster.health;
+        float num = ((float)player.health) / (monster.health + player.health);
         slider.value = num;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ParkourPlayerController : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class ParkourPlayerController : MonoBehaviour
     public float upspeed = 8;
     public float jumpforce;
     public LayerMask ground;    //下落碰地
+    public static int Hp = 1;   //血量
+    public int Count;
+
+    public Text CoinNum;
 
     public bool IsJump = false;
     public bool IsStop = false;
@@ -78,14 +83,14 @@ public class ParkourPlayerController : MonoBehaviour
 
         if (transform.localScale.x > 0.3)
         {
-            //按下A键可以缩小方块
+            //按下A键主角可以缩小
             shrink();
         }
         if (transform.localScale.x <= 1)
         {
-            //按下D键可以变大方块
+            //按下D键主角可以变大
             //检测到方块上面是天花板则不能变大
-            if (!Physics2D.Raycast(transform.position, Vector2.up, 0.5f * hight, LayerMask.GetMask("ceiling")))
+            if (!Physics2D.Raycast(transform.position, Vector2.up, 0.5f * hight, LayerMask.GetMask("AirWall")))
             {
                 enlarge();
             }
@@ -109,6 +114,7 @@ public class ParkourPlayerController : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x - 0.01f, transform.localScale.y - 0.01f, transform.localScale.z - 0.01f);
             //speed = speed + 0.05f;
             upspeed = upspeed + 0.05f;
+            ParkourEnvironmentController.speed = 13f;
         }
     }
     void enlarge()
@@ -118,6 +124,7 @@ public class ParkourPlayerController : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x + 0.01f, transform.localScale.y + 0.01f, transform.localScale.z + 0.01f);
             //speed = speed - 0.05f;
             upspeed = upspeed - 0.05f;
+            ParkourEnvironmentController.speed = 10f;
         }
     }
 
@@ -131,4 +138,29 @@ public class ParkourPlayerController : MonoBehaviour
         rb.AddForce(Vector3.up * upspeed, ForceMode2D.Impulse);
     }
 
+    //如果发生边缘碰撞
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //碰到死亡边界
+        if (collision.collider.tag == "Die" && Hp > 0)
+        {
+            Hp = 0;     //血量为0
+        }
+        //跑道尽头的抉择
+        if (collision.collider.tag == "Choice")
+        {
+            Hp = 0;     //血量为0
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Coin")
+        {
+            Destroy(collision.gameObject);    //销毁自身
+            Count += 1;
+            CoinNum.text = Count.ToString();
+        }
+
+    }
 }

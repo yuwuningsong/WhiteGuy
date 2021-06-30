@@ -26,4 +26,9 @@ public class PetManager : MonoBehaviour
         this.pet = pet;
         Debug.Log(pet.sprite);
     }
+
+    public Pet GetPet()
+    {
+        return pet;
+    }
 }

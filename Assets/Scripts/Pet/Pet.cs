@@ -8,6 +8,7 @@ public class Pet : MonoBehaviour
     public int defenceNum; // 防御力
     public string attackType; // 攻击方式
     public Sprite sprite;
+    public int index; // 序号
 
     // Start is called before the first frame update
     void Start()

@@ -5,13 +5,19 @@ using UnityEngine;
 public class PetManager : MonoBehaviour
 {
     public static PetManager petManager;
-    private Pet pet;
+    public List<Pet> pets = new List<Pet>();
 
-    // Start is called before the first frame update
+    [SerializeField] Pet pet;
+
     void Awake()
     {
         petManager = this;
-        DontDestroyOnLoad(gameObject);
+    }
+
+    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        CopyPetInfo();
     }
 
     // Update is called once per frame
@@ -20,15 +26,28 @@ public class PetManager : MonoBehaviour
         
     }
 
+    // 同步宠物信息
+    public void CopyPetInfo()
+    {
+        pet.attackNum = GetPet().attackNum;
+        pet.defenceNum = GetPet().defenceNum;
+        pet.attackType = GetPet().attackType;
+        pet.sprite = GetPet().sprite;
+        pet.index = GetPet().index;
+
+        pet.gameObject.GetComponent<SpriteRenderer>().sprite = pet.sprite;
+    }
+
     // 存储宠物信息
     public void SavePetInfo(Pet pet)
     {
-        this.pet = pet;
-        Debug.Log(pet.sprite);
+        Debug.Log("save pet!");
+        PlayerPrefs.SetInt("Pet", pet.index);
     }
 
+    // 获取宠物信息
     public Pet GetPet()
     {
-        return pet;
+        return pets[PlayerPrefs.GetInt("Pet")];
     }
 }

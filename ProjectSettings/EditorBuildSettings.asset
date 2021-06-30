@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/00-StartGame.unity
+    guid: 9df7b9a857b31f74b8de11767df2f5c2
+  - enabled: 1
+    path: Assets/Scenes/StartStory.unity
+    guid: 6d8d070fd64a83d4588782130c647c72
+  - enabled: 1
+    path: Assets/Scenes/Pokemon.unity
+    guid: 3c56b08c5d4e78145b728e4e51f0edee
   m_configObjects: {}

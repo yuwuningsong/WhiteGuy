@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerStaSce : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManagerStaSce : MonoBehaviour
 
     [SerializeField] GameObject wall = null;
     [SerializeField] GameObject door = null;
+    [SerializeField] GameObject anim = null;
+    [SerializeField] GameObject pet = null;
+    [SerializeField] PlayerWalkController player = null;
 
     // Start is called before the first frame update
     void Awake()
@@ -42,7 +46,9 @@ public class GameManagerStaSce : MonoBehaviour
         village.SetActive(true);
         PetPanel.SetActive(false);
         hasChoose = true;
+        PetManager.petManager.CopyPetInfo();
         DialogueManager.dialogueManager.InitializeText();
+        pet.SetActive(true);
     }
 
     // 判断该场景剧情结束
@@ -53,5 +59,18 @@ public class GameManagerStaSce : MonoBehaviour
             wall.SetActive(false);
             door.SetActive(true);
         }
+    }
+
+    // 进入下一场景
+    public void GoToForest()
+    {
+        anim.SetActive(true);
+        player.canMove = false;
+    }
+
+    // 加载下一场景
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(2);
     }
 }

@@ -34,4 +34,9 @@ public class AnimEventManager : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    void LoadNextScene()
+    {
+        GameManagerStaSce.gameManager.LoadNextScene();
+    }
 }

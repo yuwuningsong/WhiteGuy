@@ -19,7 +19,7 @@ public class ContactMonsterSystem : MonoBehaviour
     private Coroutine coroutine;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         coroutine = StartCoroutine("ContactMonster");
@@ -34,6 +34,8 @@ public class ContactMonsterSystem : MonoBehaviour
     // 协程遇怪
     IEnumerator ContactMonster()
     {
+        InitiateContactMonster();
+        yield return new WaitForSeconds(4f);
         while (true)
         {
             yield return new WaitForSeconds(contactCD);
@@ -41,9 +43,19 @@ public class ContactMonsterSystem : MonoBehaviour
             if (rate <= GetMonsterRate())
             {
                 hasContactMonster = true;
-                surpriseBallon.SetActive(true);
                 GetComponent<PlayerWalkController>().canMove = false;
+                surpriseBallon.SetActive(true);
             }
+        }
+    }
+
+    // 遇怪结束，重新初始化遇怪
+    void InitiateContactMonster()
+    {
+        if (hasContactMonster)
+        {
+            hasContactMonster = false;
+            GetComponent<PlayerWalkController>().canMove = true;
         }
     }
 

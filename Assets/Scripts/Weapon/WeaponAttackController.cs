@@ -38,6 +38,5 @@ public class WeaponAttackController : MonoBehaviour
     {
         GameObject newEffect = Instantiate(effect, transform.position, new Quaternion());
         if (transform.parent.localScale.x < 0) newEffect.transform.localScale = new Vector3(-1, 1, 1);
-        Debug.Log(transform.parent.localScale.x);
     }
 }

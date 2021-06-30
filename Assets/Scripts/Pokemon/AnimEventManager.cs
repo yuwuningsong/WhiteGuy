@@ -19,6 +19,7 @@ public class AnimEventManager : MonoBehaviour
     // 打开战斗界面
     void OpenFightScene()
     {
+        gameObject.SetActive(false);
         GameManagerPokemon.gameManager.OpenFightScene();
     }
 

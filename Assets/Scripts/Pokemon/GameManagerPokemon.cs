@@ -12,6 +12,10 @@ public class GameManagerPokemon : MonoBehaviour
     [SerializeField] GameObject fsCamera = null;
     [SerializeField] GameObject winPanel = null;
 
+    private GameObject newFightScene;
+    private GameObject newFsCamera;
+    private GameObject newWinPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,23 +30,25 @@ public class GameManagerPokemon : MonoBehaviour
 
     public void OpenFightScene()
     {
-        fsCamera.SetActive(true);
+        Debug.Log("Open Fight Scene!");
+        newFightScene = Instantiate(fightScene);
+        newFsCamera = Instantiate(fsCamera);
+
         map.SetActive(false);
-        fightScene.SetActive(true);
     }
 
     void CloseFightScene()
     {
-        fsCamera.SetActive(false);
+        Destroy(newFsCamera);
         map.SetActive(true);
-        fightScene.SetActive(false);
+        Destroy(newFightScene);
     }
 
     void Win()
     {
         if (isWin)
         {
-            winPanel.SetActive(true);
+            newWinPanel = Instantiate(winPanel);
             isWin = false;
             CloseFightScene();
         }

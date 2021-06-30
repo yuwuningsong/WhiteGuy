@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class FlyAttackController : MonoBehaviour
 {
 
     //预置体
     public GameObject bullet;
-    public int value = 3;
-   
+    public int value = 10;//血量
+    [SerializeField] bool gameover = false;
     private float FireRate = 0.2f;//子弹发射间隔
     private float NextFire;
    
@@ -20,6 +22,8 @@ public class FlyAttackController : MonoBehaviour
     void Update()
     {
         Fire();
+        if(gameover)
+            SceneManager.LoadScene("FlyFight");
 
     }
     public void Fire()
@@ -37,6 +41,8 @@ public class FlyAttackController : MonoBehaviour
             Destroy(collision.gameObject);
             value--;
         }
+        if(value<=0)
+            gameover = true;
     }
 
    

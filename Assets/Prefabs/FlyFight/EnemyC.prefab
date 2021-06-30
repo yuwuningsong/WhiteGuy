@@ -147,3 +147,4 @@ MonoBehaviour:
   EnemyBullet: {fileID: 5735928349305315357, guid: 67a0e4f0ccdcf00449d8830cc448af13,
     type: 3}
   Speed: 7
+  EnemyValue: 3

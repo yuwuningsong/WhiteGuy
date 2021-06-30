@@ -146,4 +146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyBullet: {fileID: 8086847167408807573, guid: 6cbc726882c7bc4488c86148d589db25,
     type: 3}
-  Speed: 8
+  Speed: 10
+  EnemyValue: 1

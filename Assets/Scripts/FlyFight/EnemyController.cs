@@ -8,19 +8,22 @@ public class EnemyController : MonoBehaviour
     public Transform EnemyB; 
     public Transform EnemyC;
 
-    public int AWaveNum = 14;//敌人的波次
+    //EnemyA
+    private int AWaveNum = 14;//敌人的波次
     private int   AFlyCount =20;//一波敌人的数量
-    private float AFlyWait =0.5f;//一波中，单个敌人生成的时间间隔
+    private float AFlyWait =1f;//一波中，单个敌人生成的时间间隔
     private float AStartWait = 0;//开始的暂停时间
-    private float AWaveWait = 3f;//两批敌人之间的时间间隔
-
-    public int BWaveNum = 16;//敌人的波次
+    private float AWaveWait = 2f;//两批敌人之间的时间间隔
+    
+    //EnemyB
+    private int BWaveNum = 16;//敌人的波次
     private int  BFlyCount = 10;//一波敌人的数量
-    private float BFlyWait = 0.5f;//一波中，单个敌人生成的时间间隔
+    private float BFlyWait = 2f;//一波中，单个敌人生成的时间间隔
     private float BStartWait = 10f;//开始的暂停时间
-    private float BWaveWait = 10f;//两批敌人之间的时间间隔
+    private float BWaveWait = 5f;//两批敌人之间的时间间隔
 
-    public int CWaveNum = 12;//敌人的波次
+    //EnemyC
+    private int CWaveNum = 12;//敌人的波次
     private int  CFlyCount =15;//一波敌人的数量
     private float CFlyWait = 0.5f;//一波中，单个敌人生成的时间间隔
     private float CStartWait = 180;//开始的暂停时间
@@ -29,6 +32,7 @@ public class EnemyController : MonoBehaviour
     {
         StartCoroutine(CreatEnemyA());
         StartCoroutine(CreatEnemyB());
+        StartCoroutine(CreatEnemyC());
     }
 
     // Update is called once per frame

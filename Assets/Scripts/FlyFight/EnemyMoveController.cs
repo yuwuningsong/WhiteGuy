@@ -6,12 +6,18 @@ public class EnemyMoveController : MonoBehaviour
 {
     public GameObject EnemyBullet;
     public float Speed;
+    public int EnemyValue;
     // Start is called before the first frame update
     void Start()
     {
         float random = Random.Range(0, 10);
         if (random < 4)
-            Instantiate(EnemyBullet, new Vector2(transform.position.x - 0.5f, transform.position.y), Quaternion.Euler (0, 0, 90));
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Instantiate(EnemyBullet, new Vector2(transform.position.x - 0.5f, transform.position.y), Quaternion.Euler(0, 0, 90));
+            }
+        }
     }
 
     // Update is called once per frame
@@ -21,8 +27,18 @@ public class EnemyMoveController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "mybullet")
+        if (collision.tag == "mybullet"||collision.tag == "Player")
         {
+            EnemyValue--;
+            
+        }
+        if(collision.tag == "mybullet")
+        {
+            Destroy(collision.gameObject);
+        }
+        if (EnemyValue <= 0)
+        {
+
             Destroy(gameObject);
         }
     }

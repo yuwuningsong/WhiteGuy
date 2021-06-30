@@ -12,6 +12,7 @@ TagManager:
   - mybullet
   - enemyBullet
   - enemyFly
+  - Flag
   layers:
   - Default
   - TransparentFX

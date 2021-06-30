@@ -5,20 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gameManager;
     [SerializeField] GameObject player = null;
     [SerializeField] GameObject gameOverImage = null;
     [SerializeField] bool gameover = false;
+    [SerializeField] GameObject[] Levels = new GameObject[4];
+    public bool[] finishs = new bool[4];
+    public int levelCurrent;
+
+    private void Awake()
+    {
+        gameManager = this;
+        levelCurrent = 0;
+        for (int i = 0; i < Levels.Length; i++)
+        {
+            Levels[i].SetActive(false);
+            finishs[i] = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Levels[levelCurrent].SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
         Dead();
+        Finish();
         ReStart();
     }
 
@@ -38,6 +54,18 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene("HorizontalJump");
         Debug.Log("ReStart!");
+    }
+
+    void Finish()
+    {
+        if (finishs[levelCurrent] || !player.GetComponent<FinishController>().isFinish)
+            return;
+        finishs[levelCurrent] = true;
+        Levels[levelCurrent].SetActive(false);
+        Levels[levelCurrent + 1].SetActive(true);
+        levelCurrent++;
+
+        player.GetComponent<FinishController>().isFinish = false;
     }
 
 }

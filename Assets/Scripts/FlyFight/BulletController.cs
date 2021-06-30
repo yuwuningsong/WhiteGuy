@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public float speed;
+    public float Speed;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,11 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up*speed*Time .deltaTime);
+         transform.Translate(Vector3.up * Speed * Time.deltaTime);
     }
+        
+
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

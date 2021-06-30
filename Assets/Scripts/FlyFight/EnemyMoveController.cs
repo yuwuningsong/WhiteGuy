@@ -11,7 +11,7 @@ public class EnemyMoveController : MonoBehaviour
     {
         float random = Random.Range(0, 10);
         if (random < 4)
-            Instantiate(EnemyBullet, new Vector2(transform.position.x - (float)0.5, transform.position.y), Quaternion.Euler (0, 0, 90));
+            Instantiate(EnemyBullet, new Vector2(transform.position.x - 0.5f, transform.position.y), Quaternion.Euler (0, 0, 90));
     }
 
     // Update is called once per frame

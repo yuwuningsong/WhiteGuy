@@ -416,7 +416,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd01479e5a94f647b122c63ca600028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 4172968788382262564, guid: 8ae8d28c990371446a4806f71f326da9, type: 3}
+  EnemyA: {fileID: 4172968788382262564, guid: 8ae8d28c990371446a4806f71f326da9, type: 3}
+  EnemyB: {fileID: 1661965078861164974, guid: f6fe6b4e31696a244ad6bc95ed9cded8, type: 3}
+  EnemyC: {fileID: 1000778935749554395, guid: 53e656a8fb5e8294aa4f95b6e1bba172, type: 3}
+  AWaveNum: 12
+  BWaveNum: 16
+  CWaveNum: 12
 --- !u!4 &800973859
 Transform:
   m_ObjectHideFlags: 0

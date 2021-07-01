@@ -29,6 +29,8 @@ public class FollowManager : MonoBehaviour
         if (PetManager.petManager.GetPet() == null)
             return;
         pet.GetComponent<PetManager>().CopyPetInfo();
+        pet.GetComponent<BoxCollider2D>().size = new Vector2(1,1.2f);
+        pet.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0.5f);
         pet.SetActive(true);
 
     }
@@ -36,6 +38,10 @@ public class FollowManager : MonoBehaviour
     // Update is called once per frame
     private void LateUpdate()
     {
+        //正在帮助状态，暂不跟随
+        if (pet.GetComponent<HelpManager>().isHelpingJump)
+            return;
+
         //宠物跟随的偏移量
         offset = target.forward * (-0.8f) + target.up * 0.8f;
         //改变宠物的位置，让宠物移动

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FollowManager : MonoBehaviour
 {
-    public static FollowManager followManager;
-    public Rigidbody2D player;
-    public GameObject pet;
+    public static FollowManager followManager = null;
+    public Rigidbody2D player = null;
+    public GameObject pet = null;
     //宠物跟随的目标
-    public Transform target;
+    public Transform target = null;
     //宠物跟随的偏移量
     public Vector3 offset;
 

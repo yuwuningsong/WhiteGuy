@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelCurrent = PlayerPrefs.GetInt("levelCurrent");
         Levels[levelCurrent].SetActive(true);
     }
 
@@ -50,7 +51,12 @@ public class GameManager : MonoBehaviour
     void ReStart()
     {
         if (!gameover || !Input.GetKeyDown(KeyCode.R))
+        {
+            //从第一关开始
+            //PlayerPrefs.SetInt("levelCurrent", 0);
             return;
+        }
+            
 
         SceneManager.LoadScene("HorizontalJump");
         Debug.Log("ReStart!");
@@ -64,7 +70,7 @@ public class GameManager : MonoBehaviour
         Levels[levelCurrent].SetActive(false);
         Levels[levelCurrent + 1].SetActive(true);
         levelCurrent++;
-
+        PlayerPrefs.SetInt("levelCurrent", levelCurrent);
         player.GetComponent<FinishController>().isFinish = false;
     }
 

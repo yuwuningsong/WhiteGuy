@@ -30860,6 +30860,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1334641973}
   - component: {fileID: 1334641972}
+  - component: {fileID: 1334641975}
+  - component: {fileID: 1334641974}
   m_Layer: 0
   m_Name: Pet
   m_TagString: Untagged
@@ -30931,6 +30933,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334641974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334641971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a0c2a4969d0e04d8ce5e87a66c9555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackNum: 0
+  defenceNum: 0
+  attackType: 
+  sprite: {fileID: 0}
+  index: 0
+--- !u!114 &1334641975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334641971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62688392a6c7ef84abd6abd8cc706d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pets:
+  - {fileID: 3892618945468058020, guid: 458fe7c36919a1c45ae5dd85e1b6c743, type: 3}
+  - {fileID: 5289692403989526117, guid: 34db8ef2ae68ebf4bb429a22575901da, type: 3}
+  - {fileID: 2620151796085878781, guid: d27daff29ae67f7428cac340c8e3ccfa, type: 3}
+  - {fileID: 8664741405524189970, guid: 754da1a568bafca4283b327617cfae75, type: 3}
+  - {fileID: 7895895624752641061, guid: 780d0cf273c227949b3caaedb06cf95d, type: 3}
+  pet: {fileID: 1334641974}
 --- !u!1 &1334930578
 GameObject:
   m_ObjectHideFlags: 0
@@ -39690,7 +39728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1843050079
 Transform:
   m_ObjectHideFlags: 0

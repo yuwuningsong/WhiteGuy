@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerPokemon : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class GameManagerPokemon : MonoBehaviour
         Destroy(newFsCamera);
         map.SetActive(true);
         Destroy(newFightScene);
+        //刘心雨-测试
+        //SceneManager.LoadScene(3);
     }
 
     void Win()

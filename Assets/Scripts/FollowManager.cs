@@ -28,10 +28,7 @@ public class FollowManager : MonoBehaviour
     {
         if (PetManager.petManager.GetPet() == null)
             return;
-        pet.GetComponent<SpriteRenderer>().sprite = PetManager.petManager.GetPet().sprite;
-        pet.GetComponent<Pet>().attackNum = PetManager.petManager.GetComponent<Pet>().attackNum;
-        pet.GetComponent<Pet>().defenceNum = PetManager.petManager.GetComponent<Pet>().defenceNum;
-        pet.GetComponent<Pet>().attackType = PetManager.petManager.GetComponent<Pet>().attackType;
+        pet.GetComponent<PetManager>().CopyPetInfo();
         pet.SetActive(true);
 
     }
@@ -45,8 +42,8 @@ public class FollowManager : MonoBehaviour
         pet.transform.position = Vector3.Lerp(pet.transform.position, target.position + offset, Time.deltaTime * 2);
         //宠物方向
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-        if (horizontalInput != 0) 
-            // Change Direction
+        if (horizontalInput != 0)
+        // Change Direction
         {
             Vector3 scale = pet.GetComponent<Transform>().localScale;
             pet.GetComponent<Transform>().localScale = new Vector3(horizontalInput * Mathf.Abs(scale.x), scale.y, 1);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ParkourPlayerController : MonoBehaviour
 {
@@ -115,6 +116,7 @@ public class ParkourPlayerController : MonoBehaviour
             //speed = speed + 0.05f;
             upspeed = upspeed + 0.05f;
             ParkourEnvironmentController.speed = 13f;
+            ParkourBackgroundController.speed = 13f;
         }
     }
     void enlarge()
@@ -125,6 +127,7 @@ public class ParkourPlayerController : MonoBehaviour
             //speed = speed - 0.05f;
             upspeed = upspeed - 0.05f;
             ParkourEnvironmentController.speed = 10f;
+            ParkourBackgroundController.speed = 10f;
         }
     }
 
@@ -139,28 +142,40 @@ public class ParkourPlayerController : MonoBehaviour
     }
 
     //如果发生边缘碰撞
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //碰到死亡边界
-        if (collision.collider.tag == "Die" && Hp > 0)
-        {
-            Hp = 0;     //血量为0
-        }
-        //跑道尽头的抉择
-        if (collision.collider.tag == "Choice")
-        {
-            Hp = 0;     //血量为0
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    //碰到死亡边界
+    //    if (collision.collider.tag == "Die" && Hp > 0)
+    //    {
+    //        Hp = 0;     //血量为0
+    //    }
+    //    //跑道尽头的抉择
+    //    if (collision.collider.tag == "Choice")
+    //    {
+    //        Hp = 0;     //血量为0
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //收集金币
         if (collision.tag == "Coin")
         {
             Destroy(collision.gameObject);    //销毁自身
             Count += 1;
             CoinNum.text = Count.ToString();
         }
+        //死亡复活
+        if (collision.tag == "Die")
+        {
+            //Invoke("Restart", 0.5f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
     }
+
+    //void Restart()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    //}
 }

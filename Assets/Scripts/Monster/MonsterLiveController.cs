@@ -11,7 +11,6 @@ public class MonsterLiveController : MonoBehaviour
     [SerializeField] int attack = 0; // 攻击力
     [SerializeField] List<GameObject> booms = new List<GameObject>();
 
-    private bool isHurt = false;
     private int index = 0;
     private bool flag = false;
 
@@ -48,7 +47,7 @@ public class MonsterLiveController : MonoBehaviour
     public void Hurt(int attack)
     {
         health -= attack;
-        isHurt = true;
+        GetComponent<Animator>().SetTrigger("isHurt");
     }
 
     // 恢复

@@ -14,19 +14,18 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
     [SerializeField] bool inDistance = false; //攻击距离
 
     [Header("Player Follow")]
-    [SerializeField] Rigidbody2D playerFollow = null;
+    [SerializeField] Transform playerFollow = null;
 
     [Header("Bullet")]
-    [SerializeField] GameObject bullet = null;
+    [SerializeField] Transform bullet = null;
 
-    private Rigidbody2D rb;
     private Transform tf;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         tf = GetComponent<Transform>();
+        playerFollow = GameObject.Find("ArenaPlayer").transform;
     }
 
     // Update is called once per frame
@@ -47,19 +46,22 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
         //创建新攻击物体并为其设定方向
         if (inDistance && canAttack)
         {
-            //Vector3 position = new Vector3(tf.position.x, tf.position.y, 0);
-            //GameObject newBullet = Instantiate(bullet, tf, false);
-            //GameObject newBullet1 = Instantiate(bullet, tf, true);
-            //newBullet.transform.localScale = new Vector3(tf.localScale.x, 0, 0);
+            Transform newBullet = Instantiate(bullet);
+            newBullet.position = new Vector2(tf.position.x, tf.position.y);  //生成的子弹以人物为起始位置
+            newBullet.localScale = new Vector3(tf.localScale.x, 1, 1);  //改变子弹图片方向
+            newBullet.gameObject.GetComponent<ArenaEnemyAttackRemoteWeaponController>().faceDirection
+                = (int)tf.localScale.x;  //调整子弹飞行方向
+
             isAttack = true;
             attackTimeCounter = attackTimeLimit;
             canAttack = false;
         }
     }
 
+    //检查敌人是否在可攻击方向
     void DistanceCheck()
     {
-        float x = tf.position.x - playerFollow.GetComponent<Transform>().position.x;
+        float x = tf.position.x - playerFollow.position.x;
         float y = tf.localScale.x;
         if ((x > 0 && y == -1) || (x < 0 && y == 1))
         {
@@ -71,6 +73,7 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
         }
     }
 
+    //检查攻击冷却cd是否走完
     void FrequenceCheck()
     {
         if (attackTimeCounter > 0)

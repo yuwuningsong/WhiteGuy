@@ -13,6 +13,7 @@ TagManager:
   - enemyBullet
   - enemyFly
   - Flag
+  - LeftWeapon
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Bullet
   - Fly
   - enemyBullet
-  - 
+  - LeftWeapon
   - 
   - 
   - 

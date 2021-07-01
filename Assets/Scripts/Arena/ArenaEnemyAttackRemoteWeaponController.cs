@@ -6,8 +6,8 @@ public class ArenaEnemyAttackRemoteWeaponController : MonoBehaviour
 {
     [Header("Weapon")]
     public float attack = 0; //攻击力
-    //public float attackDistance = 0; //攻击距离
     public float speed = 0; //飞行速度
+    //public float attackDistance = 0; //攻击距离
 
     [Header("Recent Status")]
     public int faceDirection = 0;
@@ -35,11 +35,14 @@ public class ArenaEnemyAttackRemoteWeaponController : MonoBehaviour
     void Fly()
     {
         rb.velocity = new Vector2(faceDirection * speed, rb.velocity.y);
-        //distanceRemain -= speed * Time.deltaTime;
-        //if (distanceRemain <= 0)
-        //{
-        //    Destroy(gameObject);
-        //}
+       
+        /*
+        distanceRemain -= speed * Time.deltaTime;
+        if (distanceRemain <= 0)
+        {
+            Destroy(gameObject);
+        }
+        */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

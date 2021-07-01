@@ -15,6 +15,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerFollow = GameObject.Find("ArenaPlayer").transform;
     }
 
     // Update is called once per frame

@@ -9,11 +9,17 @@ public class ArenaEnemyLiveController : MonoBehaviour
     public float defense = 0; //防御力
 
     private bool isDead = false;
+    private int leftWeapon = 0;
+
+    [Header("Weapon")]
+    [SerializeField] Transform weapon = null;
+    private Transform tf;
 
     // Start is called before the first frame update
     void Start()
     {
         health = totalHealth;
+        tf = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -28,6 +34,13 @@ public class ArenaEnemyLiveController : MonoBehaviour
         if (isDead)
         {
             //死亡动画+掉落武器
+            if (leftWeapon == 0)
+            {
+                Transform weaponLeft = Instantiate(weapon);
+                weaponLeft.position = new Vector2(tf.position.x, tf.position.y);
+                Destroy(weaponLeft.gameObject, 5f);
+                leftWeapon++;
+            }
         }
     }
 

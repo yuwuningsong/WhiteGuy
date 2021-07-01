@@ -18,7 +18,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     [SerializeField] bool inDistance = false; //攻击距离
 
     [Header("Player Follow")]
-    [SerializeField] Rigidbody2D playerFollow = null;
+    [SerializeField] Transform playerFollow = null;
 
     private Rigidbody2D rb;
 
@@ -26,6 +26,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerFollow = GameObject.Find("ArenaPlayer").transform;
     }
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
 
     void Attack()
     {
-        int defense = playerFollow.gameObject.GetComponentInChildren<WeaponAttackController>().defense;
+        int defense = playerFollow.GetComponentInChildren<WeaponAttackController>().defense;
         if (inDistance && canAttack)
         {
             playerFollow.GetComponent<ArenaPlayerLiveController>().health -= attack * (10 / defense);
@@ -53,10 +54,11 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
         }
     }
 
+    //检查是否处于近战攻击范围内
     void DistanceCheck()
     {
-        float x = GetComponent<Transform>().position.x - playerFollow.GetComponent<Transform>().position.x;
-        float y = GetComponent<Transform>().position.y - playerFollow.GetComponent<Transform>().position.y;
+        float x = GetComponent<Transform>().position.x - playerFollow.position.x;
+        float y = GetComponent<Transform>().position.y - playerFollow.position.y;
         float z = attackDistance;
         if (x * x + y * y <= z * z)
         {
@@ -68,6 +70,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
         }
     }
 
+    //检查攻击冷却cd是否走完
     void FrequenceCheck()
     {
         if (attackTimeCounter > 0)

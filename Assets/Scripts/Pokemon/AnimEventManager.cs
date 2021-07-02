@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimEventManager : MonoBehaviour
 {
@@ -38,5 +39,20 @@ public class AnimEventManager : MonoBehaviour
     void LoadNextScene()
     {
         GameManagerStaSce.gameManager.LoadNextScene();
+    }
+
+    void Reload()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    void LoadNext()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    void CloseFightScene()
+    {
+        GameManagerPokemon.gameManager.CloseFightScene();
     }
 }

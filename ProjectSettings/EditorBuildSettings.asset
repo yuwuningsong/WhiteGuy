@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Parkour.unity
     guid: 1abd11ebcd3df2a45a313e6b767a76a0
+  - enabled: 1
+    path: Assets/Scenes/Arena.unity
+    guid: 7276d6231af9ed64b8e994c9414fa78f
+  - enabled: 1
+    path: Assets/Scenes/FlyFight.unity
+    guid: 37f3b949c7ae65542b9d49ebdf09cc0c
   m_configObjects: {}

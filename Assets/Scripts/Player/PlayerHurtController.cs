@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHurtController : MonoBehaviour
 {
     public int health = 0;
     public bool isHurt = false;
+    public bool isProtect = false;
     [SerializeField] int totalHealth = 0;
     [SerializeField] bool isDead = false;
+    [SerializeField] GameObject defence = null;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,7 @@ public class PlayerHurtController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isProtect) defence.SetActive(true);
         if (totalHealth < health) totalHealth = health;
         if (health <= 0) isDead = true;
         Dead();
@@ -26,9 +30,17 @@ public class PlayerHurtController : MonoBehaviour
     // 受伤
     public void Hurt(int attack)
     {
-        health -= attack;
-        isHurt = true;
-        GetComponent<Animator>().SetTrigger("isHurt");
+        if (isProtect)
+        {
+            isProtect = false;
+            defence.SetActive(false);
+        }
+        else
+        {
+            health -= attack;
+            isHurt = true;
+            GetComponent<Animator>().SetTrigger("isHurt");
+        }
     }
 
     // 恢复
@@ -43,6 +55,7 @@ public class PlayerHurtController : MonoBehaviour
         if (isDead)
         {
             Debug.Log("YOU DEAD!");
+            GameManagerPokemon.gameManager.isLose = true;
         }
     }
 }

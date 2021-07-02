@@ -7,11 +7,16 @@ public class GameManagerPokemon : MonoBehaviour
 {
     public static GameManagerPokemon gameManager;
     public bool isWin = false;
+    public bool isLose = false;
 
     [SerializeField] GameObject map = null;
     [SerializeField] GameObject fightScene = null;
     [SerializeField] GameObject fsCamera = null;
     [SerializeField] GameObject winPanel = null;
+    [SerializeField] GameObject losePanel = null;
+    [SerializeField] GameObject petManager = null;
+    [SerializeField] GameObject followManager = null;
+    [SerializeField] GameObject anim = null;
 
     private GameObject newFightScene;
     private GameObject newFsCamera;
@@ -27,6 +32,7 @@ public class GameManagerPokemon : MonoBehaviour
     void Update()
     {
         Win();
+        Lose();
     }
 
     public void OpenFightScene()
@@ -34,14 +40,17 @@ public class GameManagerPokemon : MonoBehaviour
         Debug.Log("Open Fight Scene!");
         newFightScene = Instantiate(fightScene);
         newFsCamera = Instantiate(fsCamera);
-
+        petManager.SetActive(false);
+        followManager.SetActive(false);
         map.SetActive(false);
     }
 
-    void CloseFightScene()
+    public void CloseFightScene()
     {
         Destroy(newFsCamera);
         map.SetActive(true);
+        petManager.SetActive(true);
+        followManager.SetActive(true);
         Destroy(newFightScene);
         //刘心雨-测试
         //SceneManager.LoadScene(3);
@@ -51,9 +60,22 @@ public class GameManagerPokemon : MonoBehaviour
     {
         if (isWin)
         {
-            newWinPanel = Instantiate(winPanel);
+            winPanel.SetActive(true);
             isWin = false;
             CloseFightScene();
         }
+    }
+
+    void Lose()
+    {
+        if (isLose)
+        {
+            losePanel.SetActive(true);
+        }
+    }
+
+    public void GotoNextScene()
+    {
+        anim.SetActive(true);
     }
 }

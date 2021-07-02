@@ -6,8 +6,14 @@ public class PetManager : MonoBehaviour
 {
     public static PetManager petManager;
     public List<Pet> pets = new List<Pet>();
+    public PlayerHurtController player = null;
 
-    [SerializeField] Pet pet;
+    [SerializeField] Pet pet = null;
+    [SerializeField] Transform monster = null;
+    [SerializeField] float skillCD = 0f;
+
+    private float timeCount = 0f;
+    private bool onCD = false;
 
     void Awake()
     {
@@ -23,7 +29,16 @@ public class PetManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetInput();
+        CDCount();
+    }
+
+    // 获取技能输入
+    void GetInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) PetAttack();
+        if (Input.GetKeyDown(KeyCode.Alpha2)) PetDefend();
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) 
     }
 
     // 同步宠物信息
@@ -49,5 +64,41 @@ public class PetManager : MonoBehaviour
     public Pet GetPet()
     {
         return pets[PlayerPrefs.GetInt("Pet")];
+    }
+
+    // 灵宠攻击
+    public void PetAttack()
+    {
+        if (monster == null) return;
+        if (!onCD)
+        {
+            pet.SetTarget(monster);
+            onCD = true;
+        }
+    }
+
+    // 灵宠防御
+    public void PetDefend()
+    {
+        if (!onCD)
+        {
+            player.isProtect = true;
+            onCD = true;
+        }
+    }
+
+    // 技能CD计时
+    void CDCount()
+    {
+        if (onCD)
+        {
+            timeCount += Time.deltaTime;
+        }
+
+        if (timeCount >= skillCD)
+        {
+            onCD = false;
+            timeCount = 0f;
+        }
     }
 }

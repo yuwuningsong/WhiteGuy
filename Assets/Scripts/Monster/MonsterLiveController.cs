@@ -41,6 +41,12 @@ public class MonsterLiveController : MonoBehaviour
             collision.gameObject.GetComponentInParent<PlayerHurtController>().Hurt(attack);
             Recover(attack);
         }
+        if (collision.CompareTag("Pet"))
+        {
+            int attack = collision.gameObject.GetComponent<Pet>().attackNum;
+            Hurt(attack);
+            PetManager.petManager.player.Recover(attack);
+        }
     }
 
     // 受伤

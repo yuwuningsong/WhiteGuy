@@ -13,7 +13,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     [SerializeField] float attackTimeLimit = 0f;
 
     [Header("Recent Status")]
-    [SerializeField] bool isAttack = false; //攻击动画
+    private Animator anim;
     [SerializeField] bool canAttack = true; //攻击频率
     [SerializeField] bool inDistance = false; //攻击距离
 
@@ -27,6 +27,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerFollow = GameObject.Find("ArenaPlayer").transform;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,21 +38,27 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (anim.GetBool("isHurt")) return;
         FrequenceCheck();
         DistanceCheck();
-        //Attack();
+        Attack();
     }
 
     void Attack()
     {
-        int defense = playerFollow.GetComponentInChildren<WeaponAttackController>().defense;
+        //int defense = playerFollow.GetComponentInChildren<WeaponAttackController>().defense;
         if (inDistance && canAttack)
         {
-            playerFollow.GetComponent<ArenaPlayerLiveController>().health -= attack * (10 / defense);
-            isAttack = true;
+            playerFollow.GetComponent<ArenaPlayerLiveController>().health -= attack * (10);// defense);
+            anim.SetBool("isAttack", true);
             attackTimeCounter = attackTimeLimit;
             canAttack = false;
         }
+    }
+
+    void EndAttack()
+    {
+        anim.SetBool("isAttack", false);
     }
 
     //检查是否处于近战攻击范围内

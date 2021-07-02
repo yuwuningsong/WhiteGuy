@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArenaEnemyLiveController : MonoBehaviour
 {
+    private Animator anim;
+
     public float totalHealth = 0;
     public float health = 0; //血量
     public float defense = 0; //防御力
@@ -20,6 +22,7 @@ public class ArenaEnemyLiveController : MonoBehaviour
     {
         health = totalHealth;
         tf = GetComponent<Transform>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,6 +44,8 @@ public class ArenaEnemyLiveController : MonoBehaviour
                 Destroy(weaponLeft.gameObject, 5f);
                 leftWeapon++;
             }
+            anim.SetBool("isDead", true);
+            Destroy(gameObject, 2f);
         }
     }
 
@@ -51,6 +56,12 @@ public class ArenaEnemyLiveController : MonoBehaviour
         {
             int attack = collision.gameObject.GetComponent<WeaponAttackController>().attack;
             health -= attack * (10 / defense);
+            anim.SetBool("isHurt", true);
         }
+    }
+
+    void EndHurt()
+    {
+        anim.SetBool("isHurt", false);
     }
 }

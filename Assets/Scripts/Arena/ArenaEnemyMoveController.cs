@@ -6,6 +6,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
 {
     [SerializeField] float speed = 0f;
     private Rigidbody2D rb;
+    private Animator anim;
 
     [Header("Player Follow")]
     [SerializeField] Transform playerFollow = null;
@@ -16,6 +17,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerFollow = GameObject.Find("ArenaPlayer").transform;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
     // Update in a certain time interval
     private void FixedUpdate()
     {
+        if (anim.GetBool("isHurt")) return;
         Run();
     }
 

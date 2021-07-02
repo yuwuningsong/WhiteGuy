@@ -9,7 +9,7 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
     [SerializeField] float attackTimeLimit = 0f;
 
     [Header("Recent Status")]
-    [SerializeField] bool isAttack = false; //攻击动画
+    private Animator anim;
     [SerializeField] bool canAttack = true; //攻击频率
     [SerializeField] bool inDistance = false; //攻击距离
 
@@ -26,6 +26,7 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
     {
         tf = GetComponent<Transform>();
         playerFollow = GameObject.Find("ArenaPlayer").transform;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +37,7 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (anim.GetBool("isHurt")) return;
         FrequenceCheck();
         DistanceCheck();
         Attack();
@@ -52,10 +54,15 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
             newBullet.gameObject.GetComponent<ArenaEnemyAttackRemoteWeaponController>().faceDirection
                 = (int)tf.localScale.x;  //调整子弹飞行方向
 
-            isAttack = true;
+            anim.SetBool("isAttack", true);
             attackTimeCounter = attackTimeLimit;
             canAttack = false;
         }
+    }
+
+    void EndAttack()
+    {
+        anim.SetBool("isAttack", false);
     }
 
     //检查敌人是否在可攻击方向

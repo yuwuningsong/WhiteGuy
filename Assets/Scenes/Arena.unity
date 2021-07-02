@@ -331,13 +331,14 @@ GameObject:
   - component: {fileID: 69097225}
   - component: {fileID: 69097224}
   - component: {fileID: 69097223}
+  - component: {fileID: 69097230}
   m_Layer: 9
   m_Name: archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &69097222
 Transform:
   m_ObjectHideFlags: 0
@@ -366,7 +367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackTimeCounter: 0
   attackTimeLimit: 1
-  isAttack: 0
   canAttack: 1
   inDistance: 0
   playerFollow: {fileID: 185269716}
@@ -401,7 +401,7 @@ MonoBehaviour:
   totalHealth: 90
   health: 0
   defense: 8
-  weapon: {fileID: 0}
+  weapon: {fileID: 1273628028}
 --- !u!61 &69097226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1875, y: 1.1875}
+    oldSize: {x: 1.5, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -445,7 +445,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1875, y: 1.1875}
+    oldSize: {x: 1.5, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -526,6 +526,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &69097230
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69097221}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 636bf6f1095e35e41bce88b11515d010, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &140150642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753274573}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.01, y: 2.21, z: 4}
+  m_LocalPosition: {x: 0.54, y: 0.25, z: 4}
   m_LocalScale: {x: 1.30406, y: 1.30406, z: 1.30406}
   m_Children: []
   m_Father: {fileID: 185269718}
@@ -2030,7 +2049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &975176374
 Transform:
   m_ObjectHideFlags: 0
@@ -2267,13 +2286,14 @@ GameObject:
   - component: {fileID: 998031334}
   - component: {fileID: 998031333}
   - component: {fileID: 998031332}
+  - component: {fileID: 998031339}
   m_Layer: 9
   m_Name: shieldman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &998031331
 Transform:
   m_ObjectHideFlags: 0
@@ -2304,7 +2324,6 @@ MonoBehaviour:
   attackDistance: 2
   attackTimeCounter: 0
   attackTimeLimit: 5
-  isAttack: 0
   canAttack: 1
   inDistance: 0
   playerFollow: {fileID: 185269716}
@@ -2338,7 +2357,7 @@ MonoBehaviour:
   totalHealth: 120
   health: 0
   defense: 13
-  weapon: {fileID: 0}
+  weapon: {fileID: 202747820}
 --- !u!61 &998031335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2356,7 +2375,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1875, y: 1.0625}
+    oldSize: {x: 1.625, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2382,7 +2401,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1875, y: 1.0625}
+    oldSize: {x: 1.625, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2463,6 +2482,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &998031339
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998031330}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d523b73e015a4c34292aa2babeffe2dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1088283030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,13 +3333,14 @@ GameObject:
   - component: {fileID: 1615474177}
   - component: {fileID: 1615474176}
   - component: {fileID: 1615474182}
+  - component: {fileID: 1615474183}
   m_Layer: 9
   m_Name: swordsman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1615474175
 Transform:
   m_ObjectHideFlags: 0
@@ -3346,7 +3385,7 @@ MonoBehaviour:
   totalHealth: 100
   health: 0
   defense: 10
-  weapon: {fileID: 0}
+  weapon: {fileID: 1638137859}
 --- !u!61 &1615474178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3364,7 +3403,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.25}
+    oldSize: {x: 1.75, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3390,7 +3429,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.25}
+    oldSize: {x: 1.75, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3487,10 +3526,28 @@ MonoBehaviour:
   attackDistance: 2
   attackTimeCounter: 0
   attackTimeLimit: 3
-  isAttack: 0
   canAttack: 1
   inDistance: 0
   playerFollow: {fileID: 185269716}
+--- !u!95 &1615474183
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615474174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e546b5484669b5f4d8b2d7f8c8e23f17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1638137858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,6 +4102,7 @@ GameObject:
   - component: {fileID: 1979782465}
   - component: {fileID: 1979782464}
   - component: {fileID: 1979782463}
+  - component: {fileID: 1979782470}
   m_Layer: 9
   m_Name: magician
   m_TagString: Untagged
@@ -4080,7 +4138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackTimeCounter: 0
   attackTimeLimit: 1.5
-  isAttack: 0
   canAttack: 1
   inDistance: 0
   playerFollow: {fileID: 185269716}
@@ -4115,7 +4172,7 @@ MonoBehaviour:
   totalHealth: 80
   health: 0
   defense: 5
-  weapon: {fileID: 0}
+  weapon: {fileID: 1612987530}
 --- !u!61 &1979782466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4133,7 +4190,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3125, y: 1.1875}
+    oldSize: {x: 1.875, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4159,7 +4216,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3125, y: 1.1875}
+    oldSize: {x: 1.875, y: 1.25}
     newSize: {x: 0.9, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4240,6 +4297,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1979782470
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979782461}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7df160f662360fe49b968513e26105c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2029541752
 GameObject:
   m_ObjectHideFlags: 0

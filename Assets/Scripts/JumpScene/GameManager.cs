@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverImage = null;
     [SerializeField] bool gameover = false;
     [SerializeField] GameObject[] Levels = new GameObject[4];
+    [SerializeField] GameObject[] CameraPositons = new GameObject[4];
+    [SerializeField] GameObject[] StartPositons = new GameObject[4];
     public bool[] finishs = new bool[4];
     public int levelCurrent;
 
@@ -28,7 +30,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         levelCurrent = PlayerPrefs.GetInt("levelCurrent");
+        GameObject.Find("Main Camera").transform.position = CameraPositons[levelCurrent].transform.position;
         Levels[levelCurrent].SetActive(true);
+        Vector3 positonStart = StartPositons[levelCurrent].transform.position;
+        player.transform.position = new Vector3(positonStart.x, positonStart.y, player.transform.position.z);
+
     }
 
     // Update is called once per frame
@@ -53,10 +59,10 @@ public class GameManager : MonoBehaviour
         if (!gameover || !Input.GetKeyDown(KeyCode.R))
         {
             //从第一关开始
-            //PlayerPrefs.SetInt("levelCurrent", 0);
+            PlayerPrefs.SetInt("levelCurrent", 0);
             return;
         }
-            
+
 
         SceneManager.LoadScene("HorizontalJump");
         Debug.Log("ReStart!");
@@ -70,6 +76,11 @@ public class GameManager : MonoBehaviour
         Levels[levelCurrent].SetActive(false);
         Levels[levelCurrent + 1].SetActive(true);
         levelCurrent++;
+        //更新相机和主角位置
+        GameObject.Find("Main Camera").transform.position = CameraPositons[levelCurrent].transform.position;
+        Vector3 positonStart = StartPositons[levelCurrent].transform.position;
+        player.transform.position = new Vector3(positonStart.x, positonStart.y, player.transform.position.z);
+
         PlayerPrefs.SetInt("levelCurrent", levelCurrent);
         player.GetComponent<FinishController>().isFinish = false;
     }

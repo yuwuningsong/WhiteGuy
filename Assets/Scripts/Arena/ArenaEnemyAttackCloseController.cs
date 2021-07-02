@@ -17,9 +17,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
     [SerializeField] bool canAttack = true; //攻击频率
     [SerializeField] bool inDistance = false; //攻击距离
 
-    [Header("Player Follow")]
-    [SerializeField] Transform playerFollow = null;
-
+    private Transform playerFollow = null;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -49,7 +47,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
         //int defense = playerFollow.GetComponentInChildren<WeaponAttackController>().defense;
         if (inDistance && canAttack)
         {
-            playerFollow.GetComponent<ArenaPlayerLiveController>().health -= attack * (10);// defense);
+            playerFollow.GetComponent<ArenaPlayerLiveController>().health -= attack;// * (10 / defense);
             anim.SetBool("isAttack", true);
             attackTimeCounter = attackTimeLimit;
             canAttack = false;

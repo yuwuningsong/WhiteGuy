@@ -13,12 +13,10 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
     [SerializeField] bool canAttack = true; //攻击频率
     [SerializeField] bool inDistance = false; //攻击距离
 
-    [Header("Player Follow")]
-    [SerializeField] Transform playerFollow = null;
-
     [Header("Bullet")]
     [SerializeField] Transform bullet = null;
 
+    private Transform playerFollow = null;
     private Transform tf;
 
     // Start is called before the first frame update

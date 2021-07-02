@@ -41,9 +41,13 @@ public class ArenaEnemyLiveController : MonoBehaviour
             {
                 Transform weaponLeft = Instantiate(weapon);
                 weaponLeft.position = new Vector2(tf.position.x, tf.position.y);
-                Destroy(weaponLeft.gameObject, 5f);
+                Destroy(weaponLeft.gameObject, 2f);
                 leftWeapon++;
+
+                GameObject go = GameObject.Find("Castles");
+                go.GetComponentInChildren<ArenaController>().enemyInScene--;
             }
+
             anim.SetBool("isDead", true);
             Destroy(gameObject, 2f);
         }
@@ -54,7 +58,7 @@ public class ArenaEnemyLiveController : MonoBehaviour
         //被攻击后根据防御力进行变幅扣血
         if (collision.CompareTag("Weapon"))
         {
-            int attack = collision.gameObject.GetComponent<WeaponAttackController>().attack;
+            int attack = collision.gameObject.GetComponent<ArenaWeaponAttackController>().attack;
             health -= attack * (10 / defense);
             anim.SetBool("isHurt", true);
         }

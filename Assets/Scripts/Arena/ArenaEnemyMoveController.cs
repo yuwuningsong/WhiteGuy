@@ -9,7 +9,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
     private Animator anim;
 
     [Header("Player Follow")]
-    [SerializeField] Transform playerFollow = null;
+    private Transform playerFollow = null;
     [SerializeField] float offset = 0f;
 
     // Start is called before the first frame update

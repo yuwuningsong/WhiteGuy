@@ -51,7 +51,7 @@ public class ArenaEnemyAttackRemoteWeaponController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //float defense = collision.gameObject.GetComponentInChildren<WeaponAttackController>().defense;
-            //collision.gameObject.GetComponent<ArenaPlayerLiveController>().health -= attack * (10 / defense);
+            collision.gameObject.GetComponent<ArenaPlayerLiveController>().health -= attack;// * (10 / defense);
             Destroy(gameObject);
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArenaWeaponAttackController : MonoBehaviour
 {
     public int attack = 0; // 攻击力
+    [SerializeField] GameObject recentAttack = null;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,13 @@ public class ArenaWeaponAttackController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Monster"))
+        {
+            recentAttack = collision.gameObject;
+        }
     }
 }

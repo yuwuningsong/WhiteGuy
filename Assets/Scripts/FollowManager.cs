@@ -8,7 +8,7 @@ public class FollowManager : MonoBehaviour
     public Rigidbody2D player = null;
     public GameObject pet = null;
     //宠物跟随的目标
-    public Transform target = null;
+    private Transform target = null;
     //宠物跟随的偏移量
     public Vector3 offset;
 
@@ -22,14 +22,13 @@ public class FollowManager : MonoBehaviour
         }
         followManager = this;
         pet.SetActive(false);
-        //DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
         if (PetManager.petManager.GetPet() == null)
             return;
         pet.GetComponent<PetManager>().CopyPetInfo();
-        pet.GetComponent<BoxCollider2D>().size = new Vector2(1,1.2f);
+        pet.GetComponent<BoxCollider2D>().size = new Vector2(1, 1.2f);
         pet.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0.5f);
         pet.SetActive(true);
 

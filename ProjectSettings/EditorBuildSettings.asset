@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HorizontalJump.unity
     guid: 4ce4857bafa72f14eae61ac9f2cb9ced
+  - enabled: 1
+    path: Assets/Scenes/Parkour.unity
+    guid: 1abd11ebcd3df2a45a313e6b767a76a0
   m_configObjects: {}

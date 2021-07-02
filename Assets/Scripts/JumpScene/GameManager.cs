@@ -74,6 +74,12 @@ public class GameManager : MonoBehaviour
             return;
         finishs[levelCurrent] = true;
         Levels[levelCurrent].SetActive(false);
+
+        if (finishs[3] == true)
+        {
+            SceneManager.LoadScene("Parkour");
+            return;
+        }
         Levels[levelCurrent + 1].SetActive(true);
         levelCurrent++;
         //更新相机和主角位置

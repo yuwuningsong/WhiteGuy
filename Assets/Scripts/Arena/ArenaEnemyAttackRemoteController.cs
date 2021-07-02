@@ -35,7 +35,7 @@ public class ArenaEnemyAttackRemoteController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (anim.GetBool("isHurt")) return;
+        if (anim.GetBool("isDead")) return;
         FrequenceCheck();
         DistanceCheck();
         Attack();

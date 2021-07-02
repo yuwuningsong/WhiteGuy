@@ -19,6 +19,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
 
     private Transform playerFollow = null;
     private Rigidbody2D rb;
+    private Animator animPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerFollow = GameObject.Find("ArenaPlayer").transform;
         anim = GetComponent<Animator>();
+        animPlayer = GameObject.Find("ArenaPlayer").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (anim.GetBool("isHurt")) return;
+        if (anim.GetBool("isDead")) return;
         FrequenceCheck();
         DistanceCheck();
         Attack();
@@ -49,6 +51,7 @@ public class ArenaEnemyAttackCloseController : MonoBehaviour
         {
             playerFollow.GetComponent<ArenaPlayerLiveController>().health -= attack;// * (10 / defense);
             anim.SetBool("isAttack", true);
+            animPlayer.SetTrigger("isHurt");
             attackTimeCounter = attackTimeLimit;
             canAttack = false;
         }

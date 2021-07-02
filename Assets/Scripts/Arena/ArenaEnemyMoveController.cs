@@ -29,7 +29,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
     // Update in a certain time interval
     private void FixedUpdate()
     {
-        if (anim.GetBool("isHurt")) return;
+        if (anim.GetBool("isDead")) return;
         Run();
     }
 
@@ -41,6 +41,7 @@ public class ArenaEnemyMoveController : MonoBehaviour
         if (x < -offset) horizontalMove = -1;
 
         rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);   // Move
+        anim.SetFloat("isRunning", Mathf.Abs(horizontalMove));
 
         float faceDirection = 0;
         if (x > 0) faceDirection = 1;

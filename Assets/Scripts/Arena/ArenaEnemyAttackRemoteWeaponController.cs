@@ -14,11 +14,13 @@ public class ArenaEnemyAttackRemoteWeaponController : MonoBehaviour
     //public float distanceRemain = 0; //剩余可以飞的距离
 
     private Rigidbody2D rb;
+    private Animator animPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animPlayer = GameObject.Find("ArenaPlayer").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,7 +54,8 @@ public class ArenaEnemyAttackRemoteWeaponController : MonoBehaviour
         {
             //float defense = collision.gameObject.GetComponentInChildren<WeaponAttackController>().defense;
             collision.gameObject.GetComponent<ArenaPlayerLiveController>().health -= attack;// * (10 / defense);
-            Destroy(gameObject);
+            animPlayer.SetTrigger("isHurt");
+            Destroy(gameObject,0.05f);
         }
     }
 

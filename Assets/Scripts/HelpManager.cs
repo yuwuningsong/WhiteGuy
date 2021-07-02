@@ -8,6 +8,7 @@ public class HelpManager : MonoBehaviour
     public GameObject player = null;
     public bool isHelpingJump = false;
     public int moveCount = 0;
+    public float helpDistance = 2;
     //计时恢复
     public float timer = 3.0f;
     // Start is called before the first frame update
@@ -49,7 +50,7 @@ public class HelpManager : MonoBehaviour
         {
             //方向向右
             moveCount++;
-            transform.position = new Vector3(position.x + 1f, position.y, position.z);
+            transform.position = new Vector3(position.x + helpDistance, position.y, position.z);
         }
         else
         {

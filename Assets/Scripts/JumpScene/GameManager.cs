@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         if (!gameover || !Input.GetKeyDown(KeyCode.R))
         {
             //从第一关开始
-            PlayerPrefs.SetInt("levelCurrent", 0);
+            //PlayerPrefs.SetInt("levelCurrent", 0);
             return;
         }
 

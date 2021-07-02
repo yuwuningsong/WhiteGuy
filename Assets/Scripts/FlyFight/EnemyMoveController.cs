@@ -24,22 +24,28 @@ public class EnemyMoveController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * Speed * Time.deltaTime);
+        DestoryEnemy();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "mybullet"||collision.tag == "Player")
+        if (collision.tag == "mybullet")
         {
             EnemyValue--;
-            
-        }
-        if(collision.tag == "mybullet")
-        {
             Destroy(collision.gameObject);
+
         }
         if (EnemyValue <= 0)
         {
 
             Destroy(gameObject);
         }
+        
+        
+    }
+
+    void DestoryEnemy()
+    {
+        if (gameObject.transform.position.x < -10)
+            Destroy(gameObject);
     }
 }

@@ -9,30 +9,39 @@ public class EnemyController : MonoBehaviour
     public Transform EnemyC;
 
     //EnemyA
-    private int AWaveNum = 14;//敌人的波次
-    private int   AFlyCount =20;//一波敌人的数量
-    private float AFlyWait =1f;//一波中，单个敌人生成的时间间隔
+    private int AWaveNum =100;//敌人的波次
+    private int   AFlyCount =5;//一波敌人的数量
+    private float AFlyWait =0.2f;//一波中，单个敌人生成的时间间隔
     private float AStartWait = 0;//开始的暂停时间
-    private float AWaveWait = 2f;//两批敌人之间的时间间隔
+    private float AWaveWait = 1f;//两批敌人之间的时间间隔
     
     //EnemyB
     private int BWaveNum = 16;//敌人的波次
     private int  BFlyCount = 10;//一波敌人的数量
-    private float BFlyWait = 2f;//一波中，单个敌人生成的时间间隔
+    private float BFlyWait = 4f;//一波中，单个敌人生成的时间间隔
     private float BStartWait = 10f;//开始的暂停时间
     private float BWaveWait = 5f;//两批敌人之间的时间间隔
 
     //EnemyC
-    private int CWaveNum = 12;//敌人的波次
-    private int  CFlyCount =15;//一波敌人的数量
-    private float CFlyWait = 0.5f;//一波中，单个敌人生成的时间间隔
-    private float CStartWait = 180;//开始的暂停时间
+    private int CWaveNum = 8;//敌人的波次
+    private int  CFlyCount =7;//一波敌人的数量
+    private float CFlyWait = 1f;//一波中，单个敌人生成的时间间隔
+    private float CStartWait = 120;//开始的暂停时间
     private float CWaveWait = 2f;//两批敌人之间的时间间隔
+
+    //EnemyC
+    private int DWaveNum = 6;//敌人的波次
+    private int DFlyCount = 15;//一波敌人的数量
+    private float DFlyWait = 0.5f;//一波中，单个敌人生成的时间间隔
+    private float DStartWait = 180;//开始的暂停时间
+    private float DWaveWait = 2f;//两批敌人之间的时间间隔
+
     void Start()
     {
         StartCoroutine(CreatEnemyA());
         StartCoroutine(CreatEnemyB());
         StartCoroutine(CreatEnemyC());
+        StartCoroutine(CreatEnemyD());
     }
 
     // Update is called once per frame
@@ -93,6 +102,24 @@ public class EnemyController : MonoBehaviour
                     yield return new WaitForSeconds(CFlyWait);
                 }
                 yield return new WaitForSeconds(CWaveWait);
+            }
+        }
+    }
+    IEnumerator CreatEnemyD()
+    {
+        for (int num = 0; num < DWaveNum; num++)
+        {
+            yield return new WaitForSeconds(DStartWait);
+            while (true)
+            {
+                for (int i = 0; i < DFlyCount; i++)
+                {
+                    Transform transform1 = Instantiate(EnemyC);
+                    float h = Random.Range(-4.4f, 4.5f);
+                    transform1.position = new Vector2(9.1f, h);
+                    yield return new WaitForSeconds(DFlyWait);
+                }
+                yield return new WaitForSeconds(DWaveWait);
             }
         }
     }

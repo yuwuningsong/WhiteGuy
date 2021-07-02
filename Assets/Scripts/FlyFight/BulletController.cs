@@ -16,11 +16,16 @@ public class BulletController : MonoBehaviour
     void Update()
     {
          transform.Translate(Vector3.up * Speed * Time.deltaTime);
+        DestoryBullet();
     }
-        
 
-    
 
+
+    void DestoryBullet()
+    {
+        if (gameObject.transform.position.x < -10 || gameObject.transform.position.x >10)
+            Destroy(gameObject);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
       

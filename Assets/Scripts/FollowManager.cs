@@ -30,7 +30,7 @@ public class FollowManager : MonoBehaviour
         PetManager.petManager.CopyPetInfo();
         pet.GetComponent<BoxCollider2D>().size = new Vector2(1, 1.2f);
         pet.GetComponent<BoxCollider2D>().offset = new Vector2(0, 0.5f);
-        pet.SetActive(true);
+        //pet.SetActive(true);
     }
 
     // Update is called once per frame

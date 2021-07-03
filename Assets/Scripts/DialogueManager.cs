@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
     public bool isTalking = false;
     public bool isOver = false;
     public static DialogueManager dialogueManager;
+    public bool special = false;
 
     [Header("Character")]
     [SerializeField] GameObject NPC = null;
@@ -83,11 +84,11 @@ public class DialogueManager : MonoBehaviour
     // 按下Z键弹出对话框
     void OpenTextBox()
     {
-        if (!isOver && !isTalking && FaceNPC() && Input.GetKeyDown(KeyCode.Z))
+        if ((special && !isOver && !isTalking  && Input.GetKeyDown(KeyCode.Z)) || !isOver && !isTalking && FaceNPC() && Input.GetKeyDown(KeyCode.Z))
         {
             textBox.SetActive(true);
             isTalking = true;
-            player.canMove = false;
+            //player.canMove = false;
         }
     }
 
@@ -126,7 +127,7 @@ public class DialogueManager : MonoBehaviour
     {
         textBox.SetActive(false);
         isTalking = false;
-        player.canMove = true;
+        //player.canMove = true;
         index = 0;
         isOver = true;
     }

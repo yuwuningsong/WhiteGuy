@@ -12339,10 +12339,10 @@ RectTransform:
   m_Father: {fileID: 1120478423}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110.20001, y: -162.19}
-  m_SizeDelta: {x: 52.925514, y: 46.389572}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -94.2, y: 24}
+  m_SizeDelta: {x: 52.925514, y: 46.389587}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961377354
 MonoBehaviour:
@@ -14088,10 +14088,10 @@ RectTransform:
   m_Father: {fileID: 1120478423}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.1, y: -162.19}
-  m_SizeDelta: {x: 52.925514, y: 46.389572}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -14.099985, y: 24}
+  m_SizeDelta: {x: 52.925514, y: 46.389587}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1057422417
 MonoBehaviour:
@@ -15524,12 +15524,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -18220,6 +18220,10 @@ MonoBehaviour:
   attackType: 
   sprite: {fileID: 0}
   index: 0
+  isAttack: 0
+  moveToTarget: 0
+  speed: 0
+  attackSpeed: 0
 --- !u!114 &1334641975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18238,7 +18242,10 @@ MonoBehaviour:
   - {fileID: 2620151796085878781, guid: d27daff29ae67f7428cac340c8e3ccfa, type: 3}
   - {fileID: 8664741405524189970, guid: 754da1a568bafca4283b327617cfae75, type: 3}
   - {fileID: 7895895624752641061, guid: 780d0cf273c227949b3caaedb06cf95d, type: 3}
+  player: {fileID: 0}
   pet: {fileID: 1334641974}
+  monster: {fileID: 0}
+  skillCD: 0
 --- !u!61 &1334641976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21834,10 +21841,10 @@ RectTransform:
   m_Father: {fileID: 1120478423}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50.00999, y: -162.19}
-  m_SizeDelta: {x: 52.925514, y: 46.389572}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 66.01001, y: 24}
+  m_SizeDelta: {x: 52.925514, y: 46.389587}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1704734188
 MonoBehaviour:

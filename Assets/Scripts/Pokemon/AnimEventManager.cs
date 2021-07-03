@@ -43,16 +43,21 @@ public class AnimEventManager : MonoBehaviour
 
     void Reload()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     void LoadNext()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     void CloseFightScene()
     {
         GameManagerPokemon.gameManager.CloseFightScene();
+    }
+
+    void LoadArena()
+    {
+        SceneManager.LoadScene(4);
     }
 }

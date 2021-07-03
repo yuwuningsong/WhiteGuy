@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  totalHealth: 500
+  totalHealth: 2500
   gameOverImage: {fileID: 1124560510}
 --- !u!61 &185269726
 BoxCollider2D:

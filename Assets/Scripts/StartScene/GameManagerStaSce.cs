@@ -71,6 +71,6 @@ public class GameManagerStaSce : MonoBehaviour
     // 加载下一场景
     public void LoadNextScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 }

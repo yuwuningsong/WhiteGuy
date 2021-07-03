@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\Player\HorizontalJump\JumpController.cs" />
     <Compile Include="Assets\Scripts\Player\HorizontalJump\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\Player\HorizontalJump\RunController.cs" />
+    <Compile Include="Assets\Scripts\Player\Parkour\GameManagerParkour.cs" />
     <Compile Include="Assets\Scripts\Player\Parkour\ParkourBackgroundController.cs" />
     <Compile Include="Assets\Scripts\Player\Parkour\ParkourEnvironmentController.cs" />
     <Compile Include="Assets\Scripts\Player\Parkour\ParkourPlayerController.cs" />
